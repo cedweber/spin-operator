@@ -14,7 +14,7 @@ kind: SpinApp
 metadata:
   name: redis-spinapp
 spec:
-  image: "ghcr.io/spinkube/redis-sample"
+  image: "ghcr.io/spinframework/redis-sample"
   replicas: 1
   executor: containerd-shim-spin
   variables:

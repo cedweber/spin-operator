@@ -51,12 +51,12 @@ func TestMain(m *testing.M) {
 		// build and load spin operator image into cluster
 		func(ctx context.Context, _ *envconf.Config) (context.Context, error) {
 			if os.Getenv("E2E_SKIP_BUILD") == "" { // nolint:forbidigo
-				if p := utils.RunCommand(`bash -c "cd .. && IMG=ghcr.io/spinkube/spin-operator:dev make docker-build"`); p.Err() != nil {
+				if p := utils.RunCommand(`bash -c "cd .. && IMG=ghcr.io/spinframework/spin-operator:dev make docker-build"`); p.Err() != nil {
 					return ctx, fmt.Errorf(ErrFormat, p.Err(), p.Out())
 				}
 			}
 
-			if p := utils.RunCommand(("k3d image import -c " + cluster.name + " ghcr.io/spinkube/spin-operator:dev")); p.Err() != nil {
+			if p := utils.RunCommand(("k3d image import -c " + cluster.name + " ghcr.io/spinframework/spin-operator:dev")); p.Err() != nil {
 				return ctx, fmt.Errorf(ErrFormat, p.Err(), p.Out())
 			}
 			return ctx, nil
@@ -80,7 +80,7 @@ func TestMain(m *testing.M) {
 				return ctx, fmt.Errorf(ErrFormat, p.Err(), p.Out())
 			}
 
-			if p := utils.RunCommand(`bash -c "cd .. && IMG=ghcr.io/spinkube/spin-operator:dev make deploy"`); p.Err() != nil {
+			if p := utils.RunCommand(`bash -c "cd .. && IMG=ghcr.io/spinframework/spin-operator:dev make deploy"`); p.Err() != nil {
 				return ctx, fmt.Errorf(ErrFormat, p.Err(), p.Out())
 			}
 

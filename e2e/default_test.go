@@ -23,7 +23,7 @@ var runtimeClassName = "wasmtime-spin-v2"
 func TestDefaultSetup(t *testing.T) {
 	var client klient.Client
 
-	helloWorldImage := "ghcr.io/spinkube/containerd-shim-spin/examples/spin-rust-hello:v0.13.0"
+	helloWorldImage := "ghcr.io/spinframework/containerd-shim-spin/examples/spin-rust-hello:v0.13.0"
 	testSpinAppName := "test-spinapp"
 
 	defaultTest := features.New("default and most minimal setup").
